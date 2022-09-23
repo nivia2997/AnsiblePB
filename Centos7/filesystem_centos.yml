@@ -1,0 +1,26 @@
+---
+- hosts: centos7
+  become: yes
+  tasks:
+  - name: Crear una nueva particion.
+    parted:
+      device: /dev/sdb
+      number: 1
+      state: present
+      part_end: 3GiB
+  - name: Crear un filesystem
+    filesystem:
+      fstype: vfat
+      dev: /dev/sdb1
+      force: yes
+  - name: Crear un directorio donde vamos a montar la particion
+    file:
+      path: /home/nivia/mi-file2
+      state: directory
+      mode: '0755'
+  - name: Montar nuestra particion
+    mount:
+      path: /home/nivia/mi-file2
+      src: /dev/sdb1
+      fstype: vfat
+      state: mounted

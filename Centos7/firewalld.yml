@@ -1,0 +1,52 @@
+---
+- name: playbook 
+  hosts: centos7
+  become: yes 
+  tasks:
+  - name: task para permitir un servicio
+    firewalld:
+      zone: public
+      service: ssh     
+      permanent: yes
+      state: enabled  
+
+  - name: reload firewall service
+    service:
+      name: firewalld
+      state: restarted
+
+  - name: task para denegar o remover un puerto
+    firewalld:
+      zone: public
+      service: https 
+      permanent: yes
+      state: disabled
+
+  - name: reload firewall service
+    service:
+      name: firewalld
+      state: restarted
+
+  - name: task para denegar o remover un puerto
+    firewalld:
+      zone: public
+      port: 22/tcp 
+      permanent: yes
+      state: disabled
+
+  - name: reload firewall service
+    service:
+      name: firewalld
+      state: restarted
+
+  - name: task para permitir un puerto
+    firewalld:
+      zone: public
+      port: 21/tcp 
+      permanent: yes
+      state: enabled
+
+  - name: reload firewall service
+    service:
+      name: firewalld
+      state: restarted

@@ -1,0 +1,13 @@
+---
+- name: playbook 
+  hosts: centos7
+  become: yes 
+  tasks:
+  - name: habilitar SELinux
+    selinux:
+      policy: targeted
+      state: enforcing
+
+#- name: Deshabilitar SELinux
+ #   selinux:
+  #    state: disabled
