@@ -1,0 +1,10 @@
+---
+
+- hosts: redhat
+  become: yes
+  tasks:
+  - name: Touch the same file, but add/remove some permissions
+    file:
+       path: /home/nivia/directori1/file1
+       state: touch
+       mode: g-wx,o-rw

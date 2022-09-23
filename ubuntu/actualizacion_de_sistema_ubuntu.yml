@@ -1,0 +1,11 @@
+---
+- name: actualizando el sistema
+  hosts: ubuntu
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: update
+      yum:
+        name: "*"
+        state: latest
+

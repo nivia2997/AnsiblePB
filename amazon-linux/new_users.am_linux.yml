@@ -1,0 +1,9 @@
+---
+- hosts: amazon-linux
+  become: yes
+  tasks:
+  - name: create user on remote host
+    ansible.builtin.user:
+      name: naty
+      shell: /bin/bash
+      group: wheel

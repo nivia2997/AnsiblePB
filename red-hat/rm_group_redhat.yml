@@ -1,0 +1,11 @@
+---
+- name: remove group
+  hosts: redhat
+  become: yes
+  vars:
+    mygroup: ejemplo-redhat
+  tasks:
+    - name: delete group
+      ansible.builtin.group:
+        name: "{{ mygroup }}"
+        state: absent

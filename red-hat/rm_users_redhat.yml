@@ -1,0 +1,11 @@
+
+---
+- hosts: redhat
+  become: yes
+  tasks:
+  - name: remove user
+    ansible.builtin.user:
+      name: naty
+      state: absent
+      remove: yes
+

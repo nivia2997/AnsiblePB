@@ -1,0 +1,12 @@
+---
+- name: create group
+  hosts: ubuntu
+  become: yes
+  become_method: sudo
+  vars:
+    mygroup: migrupo-ubuntu
+  tasks:
+    - name: create group
+      ansible.builtin.group:
+        name: "{{ mygroup }}"
+        state: present

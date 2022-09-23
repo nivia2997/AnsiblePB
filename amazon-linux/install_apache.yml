@@ -1,0 +1,25 @@
+---
+- name: instalar apache
+  hosts: amazon-linux
+  become: true
+  gather_facts: no
+
+  tasks:
+    - name: instalar web server
+      yum:
+        name: httpd
+        state: latest
+
+    - name: instalar web server
+      service:
+        name: httpd
+        enabled: yes
+
+    - name: modificar la pagina
+      shell: 'echo "feliz dia" >> /var/www/html/index.html'
+
+    - name: install web server
+      service:
+        name: httpd
+        state: restarted
+

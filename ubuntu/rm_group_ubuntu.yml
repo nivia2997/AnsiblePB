@@ -1,0 +1,12 @@
+---
+- name: eliminando grupo
+  hosts: ubuntu
+  become: yes
+  become_method: sudo
+  vars:
+    mygroup: migrupo-ubuntu
+  tasks:
+    - name: delete group
+      ansible.builtin.group:
+        name: "{{ mygroup }}"
+        state: absent

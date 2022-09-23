@@ -1,0 +1,9 @@
+---
+- hosts: redhat
+  become: yes
+  tasks:
+  - name: Schedule a command to execute in 3 minutes as root.
+    at:
+      command: ll > /home/nivia/file13 / >/dev/null
+      count: 2
+      units: minutes

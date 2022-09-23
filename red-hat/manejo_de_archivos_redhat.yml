@@ -1,0 +1,81 @@
+---
+- hosts: redhat
+  become: yes
+  tasks:
+  
+    #-name: create new directory
+    # file:
+      #  path: /home/nivia/directori1
+      # state: directory
+      # mode:  u=rwx,g=rwx,o=rwx
+      
+    #  - name: Touch a file, using symbolic modes to set the permission.
+    # file:
+    #  path: /home/nivia/directori1/file1
+    #  state: touch
+    #  mode: u=rwx,g=rwx,o=rwx
+
+    #- name: task para remover permisos
+    #file:
+    #path: /home/nivia/directori1/file1
+    # state: touch
+    #mode: '0777'
+
+    # - name: remove directory
+    #file:
+    # path: /home/nivia/directori1
+    # state: absent
+
+    # - name: Remove file (delete file)
+    #file:
+    # path: /home/nivia/directori1/file1
+    # state: absent
+    #
+ 
+
+    #vars:
+    #micopia: "/home/nivia/copia_file1"
+    # mioriginal: "/home/nivia/file2"
+    #- name: Crear un  hardlink
+    # ansible.builtin.file:
+    #   src: "{{ mioriginal }}"
+    #   dest: "{{ micopia }}"
+    #   state: hard
+
+    # vars:
+      # micopia: "/home/nivia/copia_file5"
+    # mioriginal: "/home/nivia/file5"
+    # - name: Crear un soft link
+      # ansible.builtin.file:
+        # src: "{{ mioriginal }}"
+        #dest: "{{ micopia }}"
+        #        state: link
+
+
+
+ # - name: Copiar un file del maestro y pegarlo al esclavo
+ #copy:
+ #    src: /home/nivia/file1
+ #    dest: /home/nivia/file2
+ #    owner: root 
+ #    group: root
+ #    mode: u=rw,g=r,o=ur
+ 
+ # - name: Copiar un file de un esclavo y se pega en el mismo esclavo
+    # copy:
+      #src: /home/nivia/file3
+      # dest: /home/file3
+      #     remote_src: yes
+
+    #  - name: Create a zip
+    # archive:
+      # path: /home/nivia/filess
+      # dest: /home/filess.zip
+      #  format: zip
+
+  - name: Unarchive a file that is already on the remote machine
+    unarchive:
+      src: /home/filess.zip
+      dest: /home/
+      remote_src: yes
+

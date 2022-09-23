@@ -1,0 +1,25 @@
+---
+- name: install apache
+  hosts: redhat
+  become: true
+  gather_facts: no
+
+  tasks:
+    - name: install web server
+      yum:
+        name: httpd
+        state: latest
+
+    - name: install web server
+      service:
+        name: httpd
+        enabled: yes
+
+    - name: modify home page
+      shell: 'echo "ojitos lindos" >> /var/www/html/index.html'
+
+    - name: install web server
+      service:
+        name: httpd
+        state: restarted
+

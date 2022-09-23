@@ -1,0 +1,11 @@
+---
+- name: creacion de grupo
+  hosts: redhat
+  become: yes
+  vars:
+    mygroup: ejemplo-redhat
+  tasks:
+    - name: create group
+      ansible.builtin.group:
+        name: "{{ mygroup }}"
+        state: present

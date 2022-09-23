@@ -1,0 +1,10 @@
+---
+- name: actualizando el sistema
+  hosts: amazon-linux
+  become: true
+  gather_facts: no
+  tasks:
+    - name: update
+      yum:
+        name: "*"
+        state: latest

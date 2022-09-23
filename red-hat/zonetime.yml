@@ -1,0 +1,9 @@
+---
+- name: playbook 
+  hosts: redhat
+  become: yes 
+  tasks:
+  - name: cambiar zona horaria
+    timezone:
+      name: America/Merida
+

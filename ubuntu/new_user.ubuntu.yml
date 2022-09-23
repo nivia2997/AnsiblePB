@@ -1,0 +1,10 @@
+---
+- hosts: ubuntu
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: create user on remote host
+    ansible.builtin.user:
+      name: naty
+      group: sudo
+

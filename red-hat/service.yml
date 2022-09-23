@@ -1,0 +1,14 @@
+---
+- name:
+  hosts: redhat
+  become: yes 
+  tasks:
+  - name: iniciar o detener un servicio con "system"
+    systemd:
+      state: started
+      name: httpd #stopped
+
+    - name: apagar o encender un serivicio con "service"
+    ansible.builtin.service:
+       name: docker
+       state: stopped   #started

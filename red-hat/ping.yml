@@ -1,0 +1,6 @@
+---
+- name: playbook 
+  hosts: redhat
+  become: yes 
+  tasks:
+  - action: ping  

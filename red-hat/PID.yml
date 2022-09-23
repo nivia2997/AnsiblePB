@@ -1,0 +1,9 @@
+---
+- name: playbook 
+  hosts: redhat
+  become: yes 
+  tasks:
+  - name: Getting process IDs of the process
+    pids:
+      name: python
+      register: pids_of_pytho

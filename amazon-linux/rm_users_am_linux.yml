@@ -1,0 +1,9 @@
+---
+- hosts: amazon-linux
+  become: yes
+  tasks:
+  - name: remove user
+    ansible.builtin.user:
+      name: naty
+      state: absent
+      remove: yes

@@ -1,0 +1,11 @@
+---
+- name: actualizando el sistema
+  hosts: redhat
+  become: true
+  gather_facts: no
+  tasks:
+    - name: update
+      yum:
+        name: "*"
+        state: latest
+

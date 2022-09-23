@@ -1,0 +1,11 @@
+---
+- name: nuevo grupo
+  hosts: amazon-linux
+  become: yes
+  vars:
+    mygroup: ejemplo1
+  tasks:
+    - name: crear un grupo
+      ansible.builtin.group:
+        name: "{{ mygroup }}"
+        state: present

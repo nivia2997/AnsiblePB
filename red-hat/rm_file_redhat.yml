@@ -1,0 +1,8 @@
+---
+- hosts: redhat
+  become: yes
+  tasks:
+- name: Remove file (delete file)
+  file:
+    path: /home/nivia/directori1/file1
+    state: absent

@@ -1,0 +1,10 @@
+---
+- hosts: redhat
+  become: yes
+  tasks:
+  - name: Ensure a job that runs at 2 and 5 exists. Creates an entry like "0 5,2 * * ls -alh > /dev/null"
+    ansible.builtin.cron:
+      name: "create a file"
+      minute: "48"
+      hour: "4,*"
+      job: "touch /home/nivia/newfile > /dev/null"
