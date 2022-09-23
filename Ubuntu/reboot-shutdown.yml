@@ -1,0 +1,11 @@
+---
+- name: playbook 
+  hosts: ubuntu
+  become: yes 
+  tasks: 
+   - name: apagar tu computadora
+     command: /sbin/shutdown -h now
+     when: ansible_facts['os_family'] == "Debian"
+
+#  - name: reiniciar tu computadora
+#    ansible.builtin.reboot:

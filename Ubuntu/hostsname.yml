@@ -1,0 +1,21 @@
+#---
+#- name: playbook
+#  hosts: localhost #se refiere al controller
+#  connection: local
+#  become: yes 
+#  tasks:          
+#  - name: "comando para agregar y cambiar el hostname de la computadora local" 
+#    ansible.builtin.shell: "echo '192.168.1.2  nivia-elizabeth' >> /etc/hosts"
+ 
+--- 
+- name: playbook
+  hosts: ubuntu
+  become: yes 
+  tasks:
+  - name: cambiar hostname en el worker 
+    ansible.builtin.hostname:
+      name: nivia-elizabeth
+      use: systemd
+ 
+ #este playbook solo funciona en VirtualBox y se corre en el orden en el que está escrito, pero se debe deshabilitar uno
+ # utilizando (#) y pasar al siguiente.

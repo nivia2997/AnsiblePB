@@ -1,0 +1,37 @@
+---
+- name: playbook 
+  hosts: ubuntu
+  become: yes 
+  tasks:
+  - name: habilitar UFW
+  ufw:
+    state: enabled
+    policy: allow
+
+- name: deshabilitar UFW
+    ufw:
+      state: disabled
+      policy: allow
+
+- name: permitir acceso SSH
+    ufw:
+      rule: allow
+      name: OpenSSH
+
+- name: eliminar ssh
+    ufw:
+      rule: allow
+      name: OpenSSH
+      delete: yes
+
+- name: permitir acceso al tcp puerto 80
+    ufw:
+      rule: allow
+      port: '80'
+      proto: tcp
+
+- name: denegar el acceso al tcp puerto 80
+    ufw:
+      rule: deny
+      port: '80'
+      proto: tcp
